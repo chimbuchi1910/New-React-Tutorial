@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Home from "./Pages/Homepage/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserDetailScreen from "./Screens/UserScreen/UserDetailScreen";
+import PostScreen from "./Screens/UserPostScreen/PostScreen";
+import UpdateUser from "./Screens/UserPostScreen/UpdateUser";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/userPost/:firstName/:_id" element={<PostScreen />} /> */}
+          <Route path="/UpdateUser/:firstName/:_id" element={<UpdateUser />} />
+          <Route path="/userDetail/:id" element={<UserDetailScreen />} />
+          {/* <Route path="/userDetail/:id" element={<UserDetailScreen />}></Route> */}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
